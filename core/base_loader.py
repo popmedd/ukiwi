@@ -193,6 +193,4 @@ def base_loader(pcap_detil, yaml_filename):
             check_result['status']['http'].append("not checked")
             check_result['status']['tcp'].append("not checked")
         if check_status(check_result['status']):
-            print(check_result['description'])
-            print(check_result['status'])
-            # print(tcp_all_data)
+            print(check_result)
