@@ -49,6 +49,8 @@ def parsing_pcap(file_name):
                                     flow_detil['http_request'][http_type] = http_data
                                 if "headers" not in flow_detil['http_request'].keys():
                                     flow_detil['http_request']['headers'] = None
+                                if "body" not in flow_detil['http_request'].keys():
+                                    flow_detil['http_request']['body'] = None
                     except:
                         try:
                             http_detil = dpkt.http.Response(tcp.data)
