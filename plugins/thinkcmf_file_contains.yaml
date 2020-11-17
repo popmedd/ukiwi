@@ -1,0 +1,11 @@
+info:
+  description: thinkcmf 文件包含漏洞
+  protocol: http
+match:
+  http_req:
+    method: "GET" 
+    uri:
+      content_1: "php?"
+      content_2: "templateFile"
+      decode: ['url']
+      content_4: "<?php"

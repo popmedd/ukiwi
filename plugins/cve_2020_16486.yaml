@@ -1,0 +1,17 @@
+info:
+  description: SaltStack CVE-2020-16846 命令注入漏洞 CVE-2020-25592 验证绕过漏洞
+  protocol: http
+match:
+  http_req:
+    method: "POST" 
+    uri:
+      content_1: "run"
+    headers:
+      content-type:
+        content_1: "application/x-www-form-urlencoded"
+    body:
+      content_1: "client=ssh"
+      content_2: "ssh_priv"
+      decode: ['url']
+      content_3: "-a&"
+    

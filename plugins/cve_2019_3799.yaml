@@ -1,0 +1,14 @@
+info:
+  description: Spring Cloud Config Server 路径穿越与任意文件读取漏洞 cve-2019-3799
+  protocol: http
+match:
+  http_req:
+    method: "GET" 
+    uri:
+      content_1: "%252F"
+      decode: ['url','url']
+      content_2: "../"
+  http_resp:
+    status: 200
+    body: 
+      content: "bin/bash"

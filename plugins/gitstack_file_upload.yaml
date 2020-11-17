@@ -1,0 +1,16 @@
+info:
+  description: GitStack 文件上传漏洞 CVE-2018-5955
+  protocol: http
+match:
+  http_req:
+    method: "GET" 
+    uri:
+      content_1: "/web/index.php?"
+      content_2: ".git"
+    headers:
+      authorization:
+        content_1: "Basic"
+        decode: ['base']
+        content_2: "<?php"
+  http_resp:
+    status: "401"
